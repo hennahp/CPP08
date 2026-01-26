@@ -22,6 +22,7 @@ int main()
         std::cout << BLUE << "Found in list: " << RESET << *easyfind(lst, 3) << std::endl;
         std::cout << BLUE << "Found in deque: " << RESET << *easyfind(deq, 15) << std::endl;
         std::cout << BLUE << "Searching missing value in vector: " << RESET;
+        std::cout << std::endl;
         std::cout << *easyfind(vec, 25) << std::endl;
     }
     catch(const std::exception& e)
