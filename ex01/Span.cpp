@@ -27,3 +27,19 @@ Span::~Span()
 {
 }
 
+void Span::addNumber(int number)
+{
+    if(_numbers.size() >= _maxsize)
+        throw Span::SpanFullException();
+    _numbers.push_back(number);
+}
+
+const char* Span::SpanFullException::what() const throw()
+{
+    return "Span is full. Cannot add more numbers.";
+}
+
+const char* Span::NoSpanException::what() const throw()
+{
+    return "Not enough numbers to find a span.";
+}
