@@ -16,11 +16,13 @@ int main()
         lst.push_back(i + 1);
         deq.push_back(i * 5);
     }
+    const std::vector<int> constVec(vec);
     try
     {
         std::cout << BLUE << "Found in vector: " << RESET << *easyfind(vec, 20) << std::endl;
         std::cout << BLUE << "Found in list: " << RESET << *easyfind(lst, 3) << std::endl;
         std::cout << BLUE << "Found in deque: " << RESET << *easyfind(deq, 15) << std::endl;
+        std::cout << BLUE << "Found in const vector: " << RESET << *easyfind(constVec, 40) << std::endl;
         std::cout << BLUE << "Searching missing value in vector: " << RESET;
         std::cout << std::endl;
         std::cout << *easyfind(vec, 25) << std::endl;
