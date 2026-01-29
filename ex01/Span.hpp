@@ -11,6 +11,8 @@
 #include <algorithm>
 #include <exception>
 #include <limits>
+#include <iterator>
+#include <iostream>
 
 class Span
 {
@@ -30,9 +32,14 @@ class Span
         int shortestSpan() const;
         int longestSpan() const;
 
-        template <typename InputIterator>
-        void addNumbers(InputIterator begin, InputIterator end);
-
+        template <typename It>
+        void addNumbers(It begin, It end)
+        {
+            size_t distance = std::distance(begin, end);
+            if(_numbers.size() + distance > _maxsize)
+                throw Span::SpanFullException();
+            _numbers.insert(_numbers.end(), begin, end);
+        }
 
         class SpanFullException : public std::exception
         {
